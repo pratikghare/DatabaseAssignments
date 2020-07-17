@@ -1,0 +1,19 @@
+================================     ASSIGNMENT 4     ================================
+
+
+-----------------------------------------------------------------------------------
+1) Does ANSI recognize the data type DATE?
+->	yes. 
+	The ANSIstandards specify qualifiers and formats for character representations of DATETIME and INTERVAL values
+	The standard qualifier for a DATETIME value is YEAR TO SECOND, and the standard format is as follows
+	YYYY-MM-DD HH:MM:SS 
+
+-----------------------------------------------------------------------------------
+2) Which subdivision of SQL is used to insert values in tables? 
+->	Data Manipulation Language(DML)
+	we used DML-data manupulation language.
+	To insert data into table you can use normal INSERT command.
+eg:	
+	insert into table(column1, column2) values(value1, value2);
+	In this way we can insert the values in the tables.
+-----------------------------------------------------------------------------------
