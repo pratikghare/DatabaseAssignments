@@ -1,0 +1,61 @@
+==================================     EXERCISE 4     ==================================
+
+
+-------------------------------------------------------------------
+QUESTION 1
+
+select min(Status1) from S;
+
+-------------------------------------------------------------------
+QUESTION 2
+
+select max(weight) from P;
+
+-------------------------------------------------------------------
+QUESTION 3
+
+select avg(weight) from P;
+
+-------------------------------------------------------------------
+QUESTION 4
+
+select avg(qty) from SPJ where P='P1';
+
+-------------------------------------------------------------------
+QUESTION 5
+
+select P, sum(qty) from SPJ group by P;
+
+-------------------------------------------------------------------
+QUESTION 6
+
+select distinct P, avg(qty) from SPJ group by P;
+
+-------------------------------------------------------------------
+QUESTION 7
+
+select P, max(qty) from SPJ where qty>800 group by P;
+
+-------------------------------------------------------------------
+QUESTION 8
+
+select count(Sname), Status1 from S group by Status1;
+
+-------------------------------------------------------------------
+QUESTION 9
+
+select distinct count(J), city from J group by city;
+
+-------------------------------------------------------------------
+QUESTION 10
+
+count(Status)	will give the count of all the rows in which status holds a value i.e. excluding the NULL values
+count(*) 	will give the count of all the rows present in the table even if there are null values
+
+-------------------------------------------------------------------
+QUESTION 11
+
+select Status1, count(Sname) from S group by Status1;
+
+-------------------------------------------------------------------
+
