@@ -1,0 +1,29 @@
+=======================================        ASSIGNMENT 16        =======================================
+
+
+------------------------------------------------------------------------------------------------------
+QUESTION 1
+
+create index iodate on orders(odate);
+select * from orders group by odate;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 2
+
+alter table orders
+add constraint onum_pk primary key(onum);
+
+alter table orders
+add constraint onum_pk unique(onum);
+
+------------------------------------------------------------------------------------------------------
+QUESTION 3
+
+create index iodate on orders(odate);
+
+------------------------------------------------------------------------------------------------------
+QUESTION 4
+
+alter table customers modify rating constraint rate_pk PRIMARY KEY;
+
+------------------------------------------------------------------------------------------------------

@@ -1,0 +1,39 @@
+=======================================        ASSIGNMENT 17        =======================================
+
+
+------------------------------------------------------------------------------------------------------
+QUESTION 1
+
+create table orders1
+(
+onum int not null,
+cnum int not null,
+snum int not null,
+odate date not null,
+constraint pk_1 primary key(cnum, snum)
+);
+
+------------------------------------------------------------------------------------------------------
+QUESTION 2
+
+create table salespeople2
+(
+snum int primary key,
+sname varchar(20) check(substr(upper(sname), 1, 1) between 'A' and 'M'),
+city varchar(15),
+comm float(6,2) default 0.1 not null
+); 
+
+------------------------------------------------------------------------------------------------------
+QUESTION 3
+
+create table orders1 (
+onum int primary key,
+amt float(7,3),
+odate date,
+cnum int not null,
+snum int not null,
+check(onum>cnum and cnum>snum)
+);
+
+------------------------------------------------------------------------------------------------------

@@ -1,0 +1,35 @@
+=======================================        ASSIGNMENT 12        =======================================
+
+
+------------------------------------------------------------------------------------------------------
+QUESTION 1
+
+select * from customers where rating >=any 
+(select rating from customers, orders, salespeople where 
+customers.cnum=orders.cnum and orders.snum=salespeople.snum 
+and salespeople.sname = 'Serres');
+
+------------------------------------------------------------------------------------------------------
+QUESTION 2
+
+select * from salespeople 
+where city !=ALL (select distinct city from customers);
+
+------------------------------------------------------------------------------------------------------
+QUESTION 3
+
+select * from orders where amt >any 
+(select amt from customers, orders where orders.cnum=customers.cnum  
+and city='London');
+
+------------------------------------------------------------------------------------------------------
+QUESTION 4
+
+
+select * from orders where amt > (select min(amt) from customers, 
+orders where orders.cnum=customers.cnum
+and city='London');
+
+select * from orders where amt > (select max(amt) from customers, 
+orders where orders.cnum=customers.cnum
+and city='London');

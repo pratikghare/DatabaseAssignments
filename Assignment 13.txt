@@ -1,0 +1,36 @@
+=======================================        ASSIGNMENT 13        =======================================
+
+
+------------------------------------------------------------------------------------------------------
+QUESTION 1
+
+
+select cname, city, 'High Rating' as rating_type from customers where rating > 200
+union
+select cname, city ,'Low Rating' from customers where rating <=200;
+
+select cname, cname, rating , case 
+when rating>200 then 'High Rating' 
+else 'Low Rating' end rating_type from customers
+order by rating desc;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 2
+
+select cnum as number, cname as name from customers where cnum in 
+(select cnum from orders group by cnum having count(*) > 1)
+union
+select snum as number, sname as name from salespeople where snum in 
+(select snum from orders group by snum having count(*) >1)
+order by name;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 3
+
+select snum as number from salespeople where city='San Jose'
+union
+select cnum from customers where city = 'San Jose'
+union all
+select onum from orders where odate='1990-10-03';
+
+------------------------------------------------------------------------------------------------------

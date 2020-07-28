@@ -1,0 +1,25 @@
+=======================================        ASSIGNMENT 10        =======================================
+
+
+------------------------------------------------------------------------------------------------------
+QUESTION 1
+
+select cname, city from customers where rating = (select rating from customers where cname = 'Hoffman');
+
+------------------------------------------------------------------------------------------------------
+QUESTION 2
+
+
+select distinct s1.sname as Name1, s2.sname as Name2, s1.city 
+from salespeople s1, salespeople s2 
+where s1.city in 
+(select s3.city from salespeople s3 group by city having count(*)>1) 
+group by Name1 
+having Name1 != Name2;
+
+
+select s.sname, s1.sname, s.city from salespeople s, salespeople s1
+where s.city=s1.city and s.sname>s1.sname;
+
+------------------------------------------------------------------------------------------------------
+

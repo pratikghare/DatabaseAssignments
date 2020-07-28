@@ -1,0 +1,27 @@
+=======================================        ASSIGNMENT 14        =======================================
+
+
+------------------------------------------------------------------------------------------------------
+QUESTION 1
+
+insert into salespeople (city, sname, snum)
+values('San Jose', 'Blanco', 1100);
+
+------------------------------------------------------------------------------------------------------
+QUESTION 2
+
+delete from orders where cnum = (select cnum from customers where cname ='Clemens');
+
+------------------------------------------------------------------------------------------------------
+QUESTION 3
+
+update customers set rating=rating+100 where city='Rome';
+
+------------------------------------------------------------------------------------------------------
+QUESTION 4
+
+update orders set snum=(select snum from salespeople where sname='Motika') 
+where snum=(select snum from salespeople where sname='Serres');
+select * from orders where snum=1004;
+
+------------------------------------------------------------------------------------------------------

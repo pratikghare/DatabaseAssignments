@@ -1,0 +1,28 @@
+=======================================        ASSIGNMENT 11        =======================================
+
+
+------------------------------------------------------------------------------------------------------
+QUESTION 1
+
+select * from orders where cnum = 
+(select cnum from customers where cname = 'Cisneros');
+
+select orders.onum, orders.amt, orders.odate, 
+orders.cnum, orders.snum 
+from orders, customers
+where orders.cnum=customers.cnum 
+and customers.cname='Cisneros';
+
+------------------------------------------------------------------------------------------------------
+QUESTION 2
+
+select customers.cname, customers.rating from customers 
+where cnum in (select orders.cnum from orders where amt > 
+(select avg(amt) from orders));
+
+------------------------------------------------------------------------------------------------------
+QUESTION 3
+
+select snum, count(*) from orders where snum in 
+(select snum from orders group by snum having sum(amt) > max(amt)) 
+group by snum;

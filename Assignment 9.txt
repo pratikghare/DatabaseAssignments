@@ -1,0 +1,30 @@
+=======================================        ASSIGNMENT 9        =======================================
+
+
+------------------------------------------------------------------------------------------------------
+QUESTION 1
+
+select orders.onum, customers.cname from orders, customers 
+where orders.cnum = customers.cnum;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 2
+
+select orders.onum, customers.cname, salespeople.sname from orders, customers, salespeople 
+where orders.cnum = customers.cnum and orders.snum = salespeople.snum group by onum;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 3
+
+select salespeople.sname, customers.cname, salespeople.comm from salespeople 
+join customers on customers.snum = salespeople.snum 
+where salespeople.comm > 0;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 4
+
+select orders.onum, salespeople.comm * orders.amt from orders, customers, salespeople 
+where customers.cnum = orders.cnum and orders.snum = salespeople.snum 
+and customers.rating > 100;
+
+------------------------------------------------------------------------------------------------------
