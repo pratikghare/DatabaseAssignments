@@ -1,0 +1,37 @@
+=======================================        ASSIGNMENT 20        =======================================
+
+
+------------------------------------------------------------------------------------------------------
+QUESTION 1
+
+grant update on emp to customers;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 2
+
+grant select on emp to manoj WITH GRANT OPTION;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 3
+
+revoke insert on salespeople from ajita;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 4
+
+create view cust_view
+as
+select * from customers where rating between 100 and 500 WITH CHECK OPTION;
+
+grant update, insert on cust_view to abhijeet;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 5
+
+create cust_view
+as
+select * from customers where rating = (select min(rating) from customers);
+
+grant all on cust_view to vikram
+
+------------------------------------------------------------------------------------------------------

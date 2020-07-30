@@ -1,0 +1,55 @@
+=======================================        ASSIGNMENT 20        =======================================
+
+
+------------------------------------------------------------------------------------------------------
+QUESTION 1
+
+1) Which of these views are updateable (will allow DML operations)?
+#1
+Create View Dailyorders
+as Select Distinct cnum, snum, onum, odate from Orders;
+--> This VIEW will allow DML operations but only using cnum, snum, onum, odate columns as reference to manipulate the row.
+
+#2
+Create View Custotals
+as Select cname, Sum (amt) Sum_Amt from Orders, Customers
+where Orders.cnum=Customers.cnum Group by cname;
+--> This VIEW won't allow DML operations as group by clause is used in this table. Hence, The table which select statement returns, does not exist in the Server HD.
+    Another reason is, The returned table is fetched from 2 tables using join, So the returned table does not exist in the server DATABASE.
+
+#3
+Create view Thirdorders
+as Select * from Dailyorders where odate=’1990-10-03’;
+--> This VIEW would allow update,delete operations on any column where odate=’1990-10-03’.
+
+#4
+Create view Nullcities
+as Select snum, sname, city
+from Salespeople where city is NULL
+OR sname BETWEEN ‘A’ and ‘MZ’;
+--> This VIEW is updateable as well.
+
+------------------------------------------------------------------------------------------------------
+QUESTION 2
+
+create view Commissions as select snum, comm from salespeople 
+where comm between 0.10 and 0.20 WITH CHECK OPTION;
+
+------------------------------------------------------------------------------------------------------
+QUESTION 3
+
+create tables orders1 (
+onum int,
+amt float(7,2),
+odate date default current_timestamp,
+cnum int,
+snum int );
+
+insert into orders1 (onum, amt, cnum, snum)
+values(1212, 1996.52, 2222, 3333);
+
+create view Entryorders
+as
+select * from orders1;
+
+------------------------------------------------------------------------------------------------------
